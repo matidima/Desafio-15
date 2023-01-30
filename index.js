@@ -10,7 +10,7 @@ import { MongoDBService } from "./src/services/mongoDBService.js";
 import { PassportAuth } from "./src/middlewares/passportAuth.js";
 import { INFO } from "./src/utils/info.js";
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8080
 
 const app = express();
 
