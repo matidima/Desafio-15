@@ -1,5 +1,4 @@
 import { Router } from "express";
-import compression from "compression";
 import { INFO } from "../../src/utils/info.js"
 import { IncorrectRoute } from "../middlewares/routeError.js";
 
@@ -11,7 +10,7 @@ router.get('/', (req, res) => {
     res.render('info.hbs', { data })
 })
 
-router.get('/compresion', compression(), (req, res) => {
+router.get('/compresion', (req, res) => {
     const data = INFO
     res.render('info.hbs', { data })
 })

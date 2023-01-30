@@ -1,5 +1,4 @@
 import { ProductDao } from '../daos/index.js'
-import logger from "../utils/loggers.js";
 import { getTimestamp } from "../utils/date.js";
 
 const getAll = async (req, res) => {
@@ -8,7 +7,6 @@ const getAll = async (req, res) => {
         res.render( 'form-products', { productos })
     } catch (error) {
         console.log("getAll error:" + error )
-        logger.error("getAll error:" + error )
         res.send( "Productos no encontrados" )
     }
 }
@@ -23,7 +21,6 @@ const getById = async (req, res) => {
         res.render('product-id', { producto: product })
     } catch (error) {
         console.log("getById error:" + error )
-        logger.error("getById error:" + error )
         res.send( "Producto no encontrado" )
     }
 }
@@ -39,7 +36,6 @@ const createProduct = async (req, res) => {
 
     } catch (error) {
         console.log("createProduct error:" + error )
-        logger.error("createProduct error:" + error )
         res.send( "Producto no encontrado" )
     }
 }
@@ -56,7 +52,6 @@ const deleteProduct = async (req, res) => {
         res.redirect('/products')
     } catch (error) {
         console.log("deleteProduct error:" + error )
-        logger.error("deleteProduct error:" + error )
         res.send( "Producto no encontrado" )
     }
 

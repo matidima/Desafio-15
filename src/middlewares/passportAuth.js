@@ -1,7 +1,6 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { AuthController } from "../controllers/auth.js";
-import { UserModel } from "../models/user.js";
 
 const init = () => {
     passport.use(

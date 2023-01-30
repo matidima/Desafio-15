@@ -9,7 +9,8 @@ import { config } from "./src/config/config.js";
 import { MongoDBService } from "./src/services/mongoDBService.js";
 import { PassportAuth } from "./src/middlewares/passportAuth.js";
 import { INFO } from "./src/utils/info.js";
-import logger from "./src/utils/loggers.js";
+
+const PORT = process.env.PORT
 
 const app = express();
 
@@ -55,9 +56,8 @@ const MODO = config.SERVER.MODO
 
 if (MODO === "CLUSTER") {
     if (cluster.isPrimary) {
-        const server = app.listen(config.SERVER.PORT, async () => {
+        const server = app.listen(PORT, async () => {
             console.log(`Servidor escuchando en puerto ${server.address().port}`);
-            logger.info(`Servidor escuchando en puerto ${server.address().port}`);
           });
           server.on('error', error => console.log(`Error del servidor: ${error}`))
         console.log(`CLUSTER corriendo en nodo primario ${process.pid} - Puerto ${config.SERVER.PORT}`);
@@ -73,9 +73,8 @@ if (MODO === "CLUSTER") {
     }
 } else {
     console.log(`Server inciado en modo fork`);
-    const server = app.listen(config.SERVER.PORT, async () => {
+    const server = app.listen(PORT, async () => {
       console.log(`Servidor escuchando en puerto ${server.address().port}`);
-      logger.info(`Servidor escuchando en puerto ${server.address().port}`);
     });
     server.on('error', error => console.log(`Error del servidor: ${error}`))
 }

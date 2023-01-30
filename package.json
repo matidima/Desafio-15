@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon ./index.js --ignore /*.json",
+    "fork": "node server.js --MODO FORK",
+    "cluster": "node server.js --MODO CLUSTER"
   },
   "keywords": [],
   "author": "",
