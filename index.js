@@ -42,7 +42,7 @@ app.engine("hbs",handlebars.engine({
 })
 );
 app.set("view engine", "hbs");
-app.set("views", "./public/views");
+app.set("views", "./public/views"); 
 
 PassportAuth.init()
 
